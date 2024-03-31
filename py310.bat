@@ -1,0 +1,1 @@
+set path=C:\Users\deyde\AppData\Local\Programs\Python\Python310;C:\Users\deyde\AppData\Local\Programs\Python\Python310\Scripts;%path%
