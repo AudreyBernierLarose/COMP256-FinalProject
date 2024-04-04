@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform _target;
     [SerializeField] private AgentShooter _agentShooter;
     [SerializeField] private bool canShoot = true;
-    private float _totalShootingDelay = 0.10f;
+    private float _totalShootingDelay = 0.05f;
     private float _shootingDelayLeft;
     private Rigidbody _playerRb;
     private ScoreManager _scoreManager;
