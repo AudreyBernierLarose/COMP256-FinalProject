@@ -6,28 +6,34 @@ EditorUserSettings:
   serializedVersion: 4
   m_ConfigSettings:
     RecentlyUsedSceneGuid-0:
-      value: 5002555152055d0e5b0d0a7442775c44474f4b722d7c23337c284c37e7b5613e
-      flags: 0
-    RecentlyUsedSceneGuid-1:
-      value: 06530c0304500b0a5b0d097b132606444316482b2e7924647471186ab0b4646b
-      flags: 0
-    RecentlyUsedSceneGuid-2:
-      value: 520805535c5051580b580920482506444516492f7a7e2232787a1c37b6b13061
-      flags: 0
-    RecentlyUsedSceneGuid-3:
       value: 5507075301545a595d57547116210f444e4e49282e7f22642f2b1b65b1b6376a
       flags: 0
-    RecentlyUsedSceneGuid-4:
+    RecentlyUsedSceneGuid-1:
       value: 0704515f00015e585b5b0f72477a0744444f4c297a7023312c2f4960b4b1313d
       flags: 0
-    RecentlyUsedSceneGuid-5:
-      value: 02570d5001030a03095c0e7715740d44424e1c28742d726228281936bae6656e
-      flags: 0
-    RecentlyUsedSceneGuid-6:
+    RecentlyUsedSceneGuid-2:
       value: 07030c565c540b020f575c2715220844474e1c7228717634792a4863b7e4676d
       flags: 0
-    RecentlyUsedSceneGuid-7:
+    RecentlyUsedSceneGuid-3:
       value: 5557560055530f5d0f565c7440220944434e1c2b2f2a70347d2d1b37e4b1666c
+      flags: 0
+    RecentlyUsedSceneGuid-4:
+      value: 02570d5001030a03095c0e7715740d44424e1c28742d726228281936bae6656e
+      flags: 0
+    RecentlyUsedSceneGuid-5:
+      value: 00500757550c5d0a55565a7a45725e44104f4a2e7f2b7e657a711860b2e5356f
+      flags: 0
+    RecentlyUsedSceneGuid-6:
+      value: 5453505e010c5a08590d082049265d4440164d7b7e7a72687e781c65e6e4316f
+      flags: 0
+    RecentlyUsedSceneGuid-7:
+      value: 5b50515507510c020e0d5b7249735e441416192f7c7e7e34297c496abab2356e
+      flags: 0
+    RecentlyUsedSceneGuid-8:
+      value: 57540002555651585a5d5c2111220b444716492b7d7e71612e714b61b6b56261
+      flags: 0
+    RecentlyUsedSceneGuid-9:
+      value: 5154045007070c5a0b5b5a214571594445151d7f7f7d73667a2d1f35e6b33161
       flags: 0
     RecentlyUsedScenePath-0:
       value: 22424703114646680c031c2e15301036170515651f2b233e283a5216fae13928eee205eae2343a722c0ce6281d

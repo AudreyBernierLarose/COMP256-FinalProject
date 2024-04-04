@@ -5,6 +5,7 @@ using Unity.MLAgents.Actuators;
 
 public class AgentShooter : Agent
 {
+    [SerializeField] private ScoreManager _scoreManager;
     private Rigidbody rb;
     private float x_min = -35f;
     private float x_max = 35f;
@@ -52,6 +53,7 @@ public class AgentShooter : Agent
         float x_difference = Mathf.Abs(transform.localPosition.x - Target.localPosition.x);
         if (x_difference < 0.1f) {
             SetReward(1.0f);
+            _scoreManager.IncrementEnemyScore();
             EndEpisode();
         }
         else if (transform.localPosition.x < x_min || transform.localPosition.x > x_max)        
