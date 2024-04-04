@@ -15,24 +15,28 @@ public class AgentShooter : Agent
         rb = GetComponent<Rigidbody>();
     }
 
-    public Transform Target;    
+    public Transform target;    
 
     public override void OnEpisodeBegin()
     {
-        Target.localPosition = new(Random.Range(-35f, 35f), 10f, -40f);
+        if (target)
+            target.localPosition = new(Random.Range(-36f, 36f), 10f, -40f);
 
         Vector3 initialPosition = transform.localPosition;
         if (initialPosition.x < x_min || initialPosition.x > x_max)
             initialPosition = new(0f, 1f, 20f);
+
+        if (rb) {
+            rb.angularVelocity = Vector3.zero;
+            rb.velocity = Vector3.zero;
+        }
         
-        rb.angularVelocity = Vector3.zero;
-        rb.velocity = Vector3.zero;
         transform.localPosition = initialPosition;
     }
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        sensor.AddObservation(Target.localPosition);
+        sensor.AddObservation(target.localPosition);
         sensor.AddObservation(transform.localPosition);
         sensor.AddObservation(rb.velocity.x);
     }
@@ -41,7 +45,7 @@ public class AgentShooter : Agent
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
-        Vector3 direction_to_target = Target.localPosition - transform.localPosition;
+        Vector3 direction_to_target = target.localPosition - transform.localPosition;
         direction_to_target.y = 0f; 
         direction_to_target.z = 0f;
         direction_to_target.Normalize();
@@ -50,8 +54,8 @@ public class AgentShooter : Agent
         control_signal.x = direction_to_target.x;
         rb.AddForce(control_signal * force_multiplier);
 
-        float x_difference = Mathf.Abs(transform.localPosition.x - Target.localPosition.x);
-        if (x_difference < 0.1f) {
+        float x_difference = Mathf.Abs(transform.localPosition.x - target.localPosition.x);
+        if (x_difference < 1.0f) {
             SetReward(1.0f);
             _scoreManager.IncrementEnemyScore();
             EndEpisode();
