@@ -10,6 +10,9 @@ public class AgentShooter : Agent
     private float x_min = -35f;
     private float x_max = 35f;
 
+    [SerializeField] AudioSource _enemyAudioSource;
+    [SerializeField] AudioClip _enemyHitTargetSound;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -57,6 +60,7 @@ public class AgentShooter : Agent
         float x_difference = Mathf.Abs(transform.localPosition.x - target.localPosition.x);
         if (x_difference < 1.0f) {
             SetReward(1.0f);
+            _enemyAudioSource.PlayOneShot(_enemyHitTargetSound); //play the enemy hits target sound.
             _scoreManager.IncrementEnemyScore();
             EndEpisode();
         }

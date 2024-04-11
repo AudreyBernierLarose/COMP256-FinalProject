@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -20,17 +21,31 @@ public class ScoreManager : MonoBehaviour
         //call the game over scene
         if (_ghostScore >= 3)
         {
-            SceneManager.LoadScene("GameOver");
+            StartCoroutine(GameOver());
         }
 
         //call the win scene
         if(_playerScore >= 3)
         {
-            SceneManager.LoadScene("WinScreen");
+            StartCoroutine(WinGame());
         }
     }
 
     //methods to increment the scores properly
     public void IncrementPlayerScore() => ++_playerScore;
     public void IncrementEnemyScore() => ++_ghostScore;
+
+
+    private IEnumerator GameOver()
+    {
+        yield return new WaitForSeconds(0.1f);
+        SceneManager.LoadScene("GameOver");
+    }
+
+
+    private IEnumerator WinGame() 
+    {
+        yield return new WaitForSeconds(0.1f);
+        SceneManager.LoadScene("WinScreen");
+    }
 }

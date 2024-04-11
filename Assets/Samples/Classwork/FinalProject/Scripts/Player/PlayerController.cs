@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using Unity.XR.CoreUtils;
 using UnityEngine;
 
 
@@ -9,12 +12,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform _target;
     [SerializeField] private AgentShooter _agentShooter;
     [SerializeField] private bool canShoot = true;
-    private float _totalShootingDelay = 0.05f;
+    private float _totalShootingDelay = 0.10f;
     private float _shootingDelayLeft;
     private Rigidbody _playerRb;
     private ScoreManager _scoreManager;
-
-
+    
+    //shooting sound related variables
+    [SerializeField] private AudioSource _SFXSource;
+    [SerializeField] private AudioClip _targetHitNoise;
+    [SerializeField] private AudioClip _targetMissedNoise;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -30,8 +37,7 @@ public class PlayerController : MonoBehaviour
         float xAxisMovement = Input.GetAxis("Horizontal");
         _playerRb.velocity = new Vector3(xAxisMovement, 0, 0) * _playerSpeed;
 
-
-        if (Input.GetKey(KeyCode.Mouse0))
+        if (Input.GetKeyUp(KeyCode.Mouse0))
         {
             Shoot();
         }
@@ -48,15 +54,20 @@ public class PlayerController : MonoBehaviour
 
     void Shoot()
     {
-        if(Physics.Raycast(_playerCamera.transform.position, _playerCamera.transform.TransformDirection(Vector3.forward), 
+        if (Physics.Raycast(_playerCamera.transform.position, _playerCamera.transform.TransformDirection(Vector3.forward),
             out RaycastHit hit, Mathf.Infinity))
         {
-            if (hit.transform.gameObject.CompareTag("Target") && canShoot == true) 
+            if (hit.transform.gameObject.CompareTag("Target") && canShoot == true)
             {
                 _agentShooter.EndEpisode();
                 _scoreManager.IncrementPlayerScore();
                 canShoot = false;
                 _shootingDelayLeft = _totalShootingDelay;
+                _SFXSource.PlayOneShot(_targetHitNoise);
+            }
+            else
+            {
+                _SFXSource.PlayOneShot(_targetMissedNoise);
             }
         }
     }
