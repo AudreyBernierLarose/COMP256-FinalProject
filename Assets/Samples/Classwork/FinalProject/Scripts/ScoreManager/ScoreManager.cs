@@ -7,6 +7,7 @@ public class ScoreManager : MonoBehaviour
 {
     private int _ghostScore = 0;
     private int _playerScore = 0;
+    private readonly int _score_limit = 10;
 
     [SerializeField] private TextMeshProUGUI _playerScoreTextUI;
     [SerializeField] private TextMeshProUGUI _ghostScoreTextUI;
@@ -19,13 +20,13 @@ public class ScoreManager : MonoBehaviour
 
 
         //call the game over scene
-        if (_ghostScore >= 3)
+        if (_ghostScore >= _score_limit)
         {
             StartCoroutine(GameOver());
         }
 
         //call the win scene
-        if(_playerScore >= 3)
+        if(_playerScore >= _score_limit)
         {
             StartCoroutine(WinGame());
         }

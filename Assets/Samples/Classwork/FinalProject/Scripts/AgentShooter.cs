@@ -44,7 +44,7 @@ public class AgentShooter : Agent
         sensor.AddObservation(rb.velocity.x);
     }
 
-    public float force_multiplier = 15;
+    public static float force_multiplier = 15;
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {

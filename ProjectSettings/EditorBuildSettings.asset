@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Samples/Classwork/FinalProject/MainMenu.unity
     guid: 7bd8d9334cdb9eb46a51224831a6dde7
   - enabled: 1
+    path: Assets/Samples/Classwork/FinalProject/OptionsMenu.unity
+    guid: 46fcef2f5aa95d442908955d2b0bb756
+  - enabled: 1
     path: Assets/Samples/Classwork/FinalProject/FinalProjectGame.unity
     guid: 2e06b2eaf56c52f43be535567dbfd3e9
   - enabled: 1

@@ -13,6 +13,16 @@ public class SceneHandler : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
+    public void LoadOptionsMenu()
+    {
+        SceneManager.LoadScene("OptionsMenu");
+    }
+
+    public void SetDifficulty(float diff)
+    {
+        AgentShooter.force_multiplier = diff;
+    }
+
     public void QuitGame()
     {
 #if UNITY_EDITOR //if in the unity editor and want to quit
