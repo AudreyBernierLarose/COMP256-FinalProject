@@ -2,7 +2,7 @@
 
 **Group Project** 
 
-NOTE:  This project uses the ML-Agent Unity package to train models/agents (opponent) in game.
+NOTE:  This project uses the ML-Agent Unity package to train models/agents (opponent) in game and outsourced art.
 
 almaynard-rgb contributions (in whole or in part): 
 
